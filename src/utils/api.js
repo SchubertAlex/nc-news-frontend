@@ -47,4 +47,16 @@ const fetchArticle = (article_id) => {
     });
 };
 
-export { fetchArticles, fetchTopics, updateVotes, fetchArticle };
+const fetchComments = (article_id) => {
+  return axios
+    .get(`${api}/articles/${article_id}/comments`)
+    .then((response) => {
+      return response.data.comments || [];
+    })
+    .catch((error) => {
+      console.error("Error fetching comments:", error);
+      return [];
+    });
+};
+
+export { fetchArticles, fetchTopics, updateVotes, fetchArticle, fetchComments };
