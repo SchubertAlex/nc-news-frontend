@@ -37,4 +37,14 @@ const updateVotes = (articleId, vote) => {
     });
 };
 
-export { fetchArticles, fetchTopics, updateVotes };
+const fetchArticle = (article_id) => {
+  return axios
+    .get(`${api}/articles/${article_id}`)
+    .then((response) => response.data.article)
+    .catch((error) => {
+      console.error("Error fetching article:", error);
+      throw error;
+    });
+};
+
+export { fetchArticles, fetchTopics, updateVotes, fetchArticle };
