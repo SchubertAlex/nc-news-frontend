@@ -1,11 +1,14 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <h1>Welcome to NC News</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+      </Routes>
+    </Router>
   );
-};
-
+}
 export default App;
