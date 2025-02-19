@@ -7,7 +7,6 @@ const VotingCard = ({ votes, userVote, onVote }) => {
       <Button
         onClick={() => onVote(1)}
         className={userVote === 1 ? "active" : ""}
-        disabled={userVote === 1} // Disable the upvote button if the user has already voted up
         ariaLabel="Upvote"
       >
         ↑
@@ -16,7 +15,6 @@ const VotingCard = ({ votes, userVote, onVote }) => {
       <Button
         onClick={() => onVote(-1)}
         className={userVote === -1 ? "active" : ""}
-        disabled={userVote === -1} // Disable the downvote button if the user has already voted down
         ariaLabel="Downvote"
       >
         ↓
