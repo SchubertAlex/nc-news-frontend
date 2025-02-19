@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchArticle } from "../utils/api";
 
-import MainArticle from "../components/MainArticle";
+import Article from "../components/Article";
 import CommentSection from "../components/CommentSection";
 
 const ArticlePage = () => {
@@ -25,7 +25,7 @@ const ArticlePage = () => {
 
   return (
     <div>
-      <MainArticle article={article} />
+      <Article article={article} />
       <hr />
       <CommentSection article_id={article_id} />
     </div>

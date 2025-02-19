@@ -3,7 +3,7 @@ import "../styling/ArticleCard.css";
 
 import CommentCount from "./CommentCount";
 import ArticleDetails from "./ArticleDetails";
-import VotingCard from "./VotingCard";
+import VoteButton from "./VoteButton";
 
 const ArticleCard = ({ article, handleVote }) => {
   const handleVoteClick = (vote) => {
@@ -22,7 +22,7 @@ const ArticleCard = ({ article, handleVote }) => {
         article_id={article.article_id}
       />
 
-      <VotingCard
+      <VoteButton
         votes={article.votes}
         userVote={article.userVote}
         onVote={handleVoteClick}

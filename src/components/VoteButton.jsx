@@ -1,9 +1,9 @@
 import React from "react";
 import Button from "./Button";
 
-const VotingCard = ({ votes, userVote, onVote }) => {
+const VoteButton = ({ votes, userVote, onVote }) => {
   return (
-    <div className="voting-card">
+    <div className="vote-button">
       <Button
         onClick={() => onVote(1)}
         className={userVote === 1 ? "active" : ""}
@@ -23,4 +23,4 @@ const VotingCard = ({ votes, userVote, onVote }) => {
   );
 };
 
-export default VotingCard;
+export default VoteButton;
