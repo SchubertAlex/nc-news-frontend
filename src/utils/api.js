@@ -62,21 +62,4 @@ const fetchComments = (article_id) => {
     });
 };
 
-const postComment = (article_id, newComment) => {
-  return axios
-    .post(`${api}/articles/${article_id}/comments`, newComment)
-    .then((response) => response.data.comment)
-    .catch((error) => {
-      console.error("Error posting comment:", error);
-      throw error;
-    });
-};
-
-export {
-  fetchArticles,
-  fetchTopics,
-  updateVotes,
-  fetchArticle,
-  fetchComments,
-  postComment,
-};
+export { fetchArticles, fetchTopics, updateVotes, fetchArticle, fetchComments };
