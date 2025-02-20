@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { fetchArticle, updateVotes } from "../utils/api";
 import VoteButton from "./VoteButton";
 
-const Article = ({ article_id }) => {
+const Article = () => {
+  const { article_id } = useParams();
+
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [voted, setVoted] = useState(() => {

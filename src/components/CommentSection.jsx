@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { fetchComments } from "../utils/api";
 
-const CommentSection = ({ article_id }) => {
+const CommentSection = () => {
+  const { article_id } = useParams();
+
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchComments(article_id)
       .then((commentsData) => {
         setComments(commentsData);
