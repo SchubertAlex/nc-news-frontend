@@ -3,13 +3,16 @@ import axios from "axios";
 const api = "https://backend-news-project-mdgt.onrender.com/api";
 
 const fetchArticles = ({ topicFilter = "" }) => {
-  let url = `${api}/articles?sort_by=created_at&order=desc`;
+  const params = {
+    sort_by: "created_at",
+    order: "desc",
+  };
   if (topicFilter) {
-    url += `&topic=${topicFilter}`;
+    params.topic = topicFilter;
   }
 
   return axios
-    .get(url)
+    .get(`${api}/articles`, { params })
     .then((response) => response.data.articles)
     .catch((error) => {
       console.error("Error fetching articles:", error);
