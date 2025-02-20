@@ -40,10 +40,10 @@ const Homepage = () => {
   const handleVote = (articleId, vote) => {
     const currentVote = voted[articleId] || 0;
 
-    if (currentVote === vote) return;
-
     let newVote;
-    if (currentVote === -vote) {
+    if (currentVote === vote) {
+      return;
+    } else if (currentVote === -vote) {
       newVote = 0;
     } else {
       newVote = vote;
@@ -63,7 +63,12 @@ const Homepage = () => {
         setArticleList((prevArticles) =>
           prevArticles.map((article) =>
             article.article_id === articleId
-              ? { ...article, ...updatedArticleWithComments, userVote: newVote }
+              ? {
+                  ...article,
+                  ...updatedArticleWithComments,
+                  votes: updatedArticle.votes,
+                  userVote: newVote,
+                }
               : article
           )
         );
