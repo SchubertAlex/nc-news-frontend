@@ -7,7 +7,14 @@ const ArticleDetails = ({ title, author, topic, created_at, article_id }) => {
       <h3>{title}</h3>
       <p>By: {author}</p>
       <p>Topic: {topic}</p>
-      <p>Posted on: {new Date(created_at).toLocaleDateString()}</p>
+      <p>
+        Posted on:{" "}
+        {new Date(created_at).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })}
+      </p>
       <Link to={`/articles/${article_id}`}>Read Full Article</Link>
     </div>
   );

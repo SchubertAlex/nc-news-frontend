@@ -66,8 +66,12 @@ const Article = () => {
     <div>
       <h1>{article.title}</h1>
       <p>
-        By {article.author} |{" "}
-        {new Date(article.created_at).toLocaleDateString()}
+        By: {article.author} |{" "}
+        {new Date(article.created_at).toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })}
       </p>
       <p>{article.body}</p>
       <VoteButton
