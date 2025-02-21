@@ -1,4 +1,6 @@
-const CommentList = ({ comments }) => {
+const CommentList = ({ comments, onDeleteComment }) => {
+  const currentUser = "tickle122";
+
   return (
     <ul>
       {comments.map((comment) => (
@@ -11,6 +13,14 @@ const CommentList = ({ comments }) => {
               year: "numeric",
             })}
             )
+            {comment.author === currentUser ? (
+              <button
+                onClick={() => onDeleteComment(comment.comment_id)}
+                style={{ marginLeft: "10px", color: "red" }}
+              >
+                Delete
+              </button>
+            ) : null}
           </p>
           <p>{comment.body}</p>
         </li>
