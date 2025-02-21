@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const CommentForm = ({ postCommentHandler }) => {
+const CommentForm = ({ onPostComment }) => {
   const [commentBody, setCommentBody] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!commentBody.trim()) return;
 
-    postCommentHandler(commentBody);
+    onPostComment(commentBody);
     setCommentBody("");
   };
 

@@ -72,6 +72,18 @@ const postComment = (article_id, newComment) => {
     });
 };
 
+const deleteComment = (comment_id) => {
+  return axios
+    .delete(`${api}/comments/${comment_id}`)
+    .then(() => {
+      return { success: true };
+    })
+    .catch((error) => {
+      console.error("Error deleting comment:", error);
+      throw error;
+    });
+};
+
 export {
   fetchArticles,
   fetchTopics,
@@ -79,4 +91,5 @@ export {
   fetchArticle,
   fetchComments,
   postComment,
+  deleteComment,
 };
